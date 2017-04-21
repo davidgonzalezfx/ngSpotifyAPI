@@ -1,0 +1,16 @@
+<h1>Need Artist Info?</h1>
+<p class="lead">Use this simple angular2 app to browse about your favorite artist. You will get album infor, the album tracks...enjoy it!</p>
+<form class="form-group">
+	<input type="text" class="form-control" placeholder="Search here..." name="searchStr" [(ngModel)]="searchStr"    (keyup)="searchMusic()" >
+</form>
+
+<div *ngIf="res">
+	<div *ngFor="let artist of res">
+		<div class="well">
+			<a routerLink="/artist/{{artist.id}}"><h4>{{artist.name}}</h4></a>
+			<div>
+				<strong>Genres: </strong><span *ngFor="let genre of artist.genres">{{genre}} </span>
+			</div>
+		</div>
+	</div>
+</div>
